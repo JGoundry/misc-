@@ -21,7 +21,7 @@ template <typename T> void print(std::span<T> s) {
 
 class TestHeap : public ::testing::TestWithParam<std::vector<int>> {};
 
-TEST_P(TestHeap, Heap) {
+TEST_P(TestHeap, MakeHeap) {
   auto h = GetParam();
 
   if constexpr (debug)

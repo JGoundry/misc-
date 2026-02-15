@@ -22,7 +22,7 @@ include(GoogleTest)
 add_library(heap INTERFACE)
 target_include_directories(heap INTERFACE src/heap)
 
-add_executable(test_heap tests/heap_test.cpp)
+add_executable(test_heap tests/heap/test_heap.cpp)
 target_link_libraries(test_heap PRIVATE heap GTest::gtest GTest::gtest_main)
 
 # Ctest discovery
