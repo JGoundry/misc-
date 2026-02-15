@@ -1,0 +1,61 @@
+Running main() from /home/joshg/Projects/misc++/build/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from TestHeap
+[ RUN      ] TestHeap.Heap/0
+5 7 3 9 
+n: 4
+shdown: child: 362527244, parent: 7
+5 362527244 3 9 
+/home/joshg/Projects/misc++/tests/heap_test.cpp:35: Failure
+Value of: std::ranges::is_heap(h)
+  Actual: false
+Expected: true
+
+[  FAILED  ] TestHeap.Heap/0, where GetParam() = { 5, 7, 3, 9 } (0 ms)
+[ RUN      ] TestHeap.Heap/1
+9 2 12 2 
+n: 4
+shdown: child: 7, parent: 2
+9 7 12 2 
+/home/joshg/Projects/misc++/tests/heap_test.cpp:35: Failure
+Value of: std::ranges::is_heap(h)
+  Actual: false
+Expected: true
+
+[  FAILED  ] TestHeap.Heap/1, where GetParam() = { 9, 2, 12, 2 } (0 ms)
+[ RUN      ] TestHeap.Heap/2
+3 9 4 7 
+n: 4
+shdown: child: 2, parent: 9
+3 9 4 7 
+/home/joshg/Projects/misc++/tests/heap_test.cpp:35: Failure
+Value of: std::ranges::is_heap(h)
+  Actual: false
+Expected: true
+
+[  FAILED  ] TestHeap.Heap/2, where GetParam() = { 3, 9, 4, 7 } (0 ms)
+[ RUN      ] TestHeap.Heap/3
+9 0 22 29 15 19 59 
+n: 7
+shdown: child: 7364965, parent: 22
+shup: child: 0, parent: 0
+9 0 7364965 29 15 19 59 
+/home/joshg/Projects/misc++/tests/heap_test.cpp:35: Failure
+Value of: std::ranges::is_heap(h)
+  Actual: false
+Expected: true
+
+[  FAILED  ] TestHeap.Heap/3, where GetParam() = { 9, 0, 22, 29, 15, 19, 59 } (0 ms)
+[----------] 4 tests from TestHeap (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 4 tests, listed below:
+[  FAILED  ] TestHeap.Heap/0, where GetParam() = { 5, 7, 3, 9 }
+[  FAILED  ] TestHeap.Heap/1, where GetParam() = { 9, 2, 12, 2 }
+[  FAILED  ] TestHeap.Heap/2, where GetParam() = { 3, 9, 4, 7 }
+[  FAILED  ] TestHeap.Heap/3, where GetParam() = { 9, 0, 22, 29, 15, 19, 59 }
+
+ 4 FAILED TESTS
