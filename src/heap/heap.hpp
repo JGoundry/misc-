@@ -8,28 +8,34 @@ namespace msc {
 
 template <typename T> constexpr void heapify_down(std::vector<T> &r, size_t i) {
   using std::swap;
-
   const auto n = r.size();
-  const auto first_non_leaf_idx = n / 2 - 1;
-  const auto left_child_idx = i * 2 + 1;
-  const auto right_child_idx = i * 2 + 2;
 
-  const auto max_child_idx = [&]() {
-    if (right_child_idx < n && r[right_child_idx] > r[left_child_idx])
-      return right_child_idx;
-    return left_child_idx;
-  }();
+  while (true) {
+    const auto left_child_idx = i * 2 + 1;
+    const auto right_child_idx = i * 2 + 2;
 
-  if (r[i] < r[max_child_idx]) {
-    swap(r[i], r[max_child_idx]);
-    if (max_child_idx <= first_non_leaf_idx)
-      heapify_down(r, max_child_idx);
+    auto largest_idx{i};
+
+    if (left_child_idx < n && r[left_child_idx] > r[largest_idx])
+      largest_idx = left_child_idx;
+
+    if (right_child_idx < n && r[right_child_idx] > r[largest_idx])
+      largest_idx = right_child_idx;
+
+    if (largest_idx == i)
+      break;
+
+    swap(r[i], r[largest_idx]);
+    i = largest_idx;
   }
 }
 
 template <typename T> constexpr void make_heap(std::vector<T> &r) {
-  const auto first_non_leaf_idx = r.size() / 2 - 1;
-  for (long i = first_non_leaf_idx; i >= 0; --i) {
+  const auto n = r.size();
+  if (n < 2) return;
+
+  // Start from first non leaf idx
+  for (size_t i = n / 2; i-- > 0;) {
     heapify_down(r, i);
   }
 }

@@ -36,10 +36,11 @@ TEST_P(TestHeap, MakeHeap) {
 }
 
 INSTANTIATE_TEST_SUITE_P(, TestHeap,
-                         Values(std::vector<int>{5, 7, 3, 9},
+                         Values(std::vector<int>{},
+                                std::vector<int>{5, 7, 3, 9},
                                 std::vector<int>{9, 2, 12, 2, 9},
                                 std::vector<int>{3, 9, 4, 7, 5, 2},
-                                std::vector<int>{-3, 1, 9, 12, 5, 9,},
+                                std::vector<int>{-3, 1, 9, 12, 5, 9},
                                 std::vector<int>{9, 0, 22, 29, 15, 19, 59}));
 
 } // namespace testing
